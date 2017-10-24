@@ -1,0 +1,3 @@
+Leandro
+
+Validar tabela de literais e implementar a funcao de retornar erro
