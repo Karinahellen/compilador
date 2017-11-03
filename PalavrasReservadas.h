@@ -1,4 +1,4 @@
-  const char *palavraReservada[9];
+  const char *palavraReservada[10];
   
   void preencher_palavras_reservadas (){ 
 	  palavraReservada[0] = "programa";
@@ -8,7 +8,7 @@
 	  palavraReservada[4] = "senao";
 	  palavraReservada[5] = "para";
 	  palavraReservada[6] = "inteiro";
-	  palavraReservada[7] =  "caracter";
+	  palavraReservada[7] = "caracter";
 	  palavraReservada[8] = "real";
 	  palavraReservada[9] = "fim";
    }

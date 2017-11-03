@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define QTDE_TOTAL_LITERAIS 92 // total de símbolos permitidos
-#define QTDE_SIMBOLOS 127 // total de símbolos da tabela ascii
+#define QTDE_LITERAIS 127 // total de símbolos da tabela ascii
 
 #include "LiteraisTabela.h"
-#include "FuncoesCompilador.h" 
+//#include "FuncoesCompilador.h" 
 #include "PalavrasReservadas.h"
 
 int main()
@@ -17,8 +18,18 @@ int main()
 	/* Preenche o vetor de palavras reservadas */	
 	preencher_palavras_reservadas();
 	
-	int num, linha = 0, anterior=0;
+	/*int i;
 	
+	for(i = 0; i<10; i++ ){
+		printf("%s \n", palavraReservada[i]);
+	}*/
+	
+	int num, linha = 1, anterior=0;
+	
+	char vetorCaracter [50];
+	memset(vetorCaracter,0,strlen(vetorCaracter));	
+	int contCaracter = 0;
+		
 	FILE *fp;
 	char c;
 	fp = fopen("novo.txt","r");
@@ -40,16 +51,33 @@ int main()
 				/* incrementa +1 no contador de linhas */
 				linha++; 		
 			}else{ 
-				anterior = num; /* anterior recebe o numero atual */
+				if (num >= 97 && num <= 122){ //verificar letras minusculas
+					/*anterior = num; /* anterior recebe o numero atual */
+					
+					    vetorCaracter[contCaracter] = num;				
+						 contCaracter++;						 					 
+						 printf("%c",num);	
+				
+				
+				}else{
+					 if(num == 32 || num == 10){ // se o caracter for diferente de quebra e espaco
+							printf("\n o vetor e: %s \n", vetorCaracter);
+						if (strcasecmp("programa9", vetorCaracter) == 0){
+							printf("palavra encontrada");
+						}
+												 					 					
+				   	}else{
+				   			printf("\n nao e palavra reservada \n");
+							printf("Erro na linha: %i",linha);
+							printf(" \n %i \n",num);	
+							break;
+					   }										
+				
+				}			
 			} 
-		}
-		
-		/* imprime o caracter lido */
-	    printf("%c", c); 
-	}
-	
-	printf("linha: %i",linha);
-	
+		}			
+
+	}	
 	fclose(fp);
 	return 0;
 }
