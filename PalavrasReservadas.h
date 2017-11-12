@@ -12,4 +12,3 @@
 	  palavraReservada[8] = "real";
 	  palavraReservada[9] = "fim";
    }
-

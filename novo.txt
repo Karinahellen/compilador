@@ -1,1 +1,9 @@
-programa leia
+programa
+
+leia
+
+inteiro #teste;
+caracter #nome;
+real #soma;
+
+fim
